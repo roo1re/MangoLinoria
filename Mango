@@ -3067,23 +3067,12 @@ function Library:CreateWindow(...)
         local TabButtonWidth = Library:GetTextBounds(Name, Library.Font, 16);
 
         local TabButton = Library:Create('Frame', {
-    BackgroundColor3 = Library.MainColor,
-    BorderColor3 = Library.OutlineColor,
-    Size = UDim2.new(0, TabButtonWidth + 14, 1, -2), 
-    Position = UDim2.new(0, 0, 0, 1),
-    ZIndex = 1,
-    Parent = TabArea,
-})
-
-
-Library:Create('UIStroke', {
-    Color = Library.AccentColor,
-    Thickness = 1.3,
-    Transparency = 0.4,
-    ApplyStrokeMode = Enum.ApplyStrokeMode.Border,
-    Parent = TabButton,
-})
-
+            BackgroundColor3 = Library.BackgroundColor;
+            BorderColor3 = Library.OutlineColor;
+            Size = UDim2.new(0, TabButtonWidth + 8 + 7, 1, 5);
+            ZIndex = 1;
+            Parent = TabArea;
+        });
 
         Library:AddToRegistry(TabButton, {
             BackgroundColor3 = 'BackgroundColor';
@@ -3645,4 +3634,3 @@ Players.PlayerRemoving:Connect(OnPlayerChange);
 
 getgenv().Library = Library
 return Library
-
